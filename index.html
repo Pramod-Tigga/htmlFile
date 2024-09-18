@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            box-sizing: border-box;
+
+        }
+        /* header  */
+        header{
+            /* padding: 20px; */
+           /* border: 2px solid black; */
+           display: flex;
+           background-color: #fbc531;
+           color: white;
+           box-shadow: 12px 12px 12px rgba(0,0,0,0.1);
+           position: fixed;
+           width: 100%;
+           /* justify-content: end; */
+           
+
+        }
+        header ul li{
+            margin-left: 40px;
+        }
+        li a{
+            font-size: 22px;
+        }
+       li{
+        list-style: none;
+       }
+       header li{
+        font-weight: 600;
+       }
+       header li:hover {
+          color: black;
+       }
+       ul{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 900px;
+        height: 50px ;
+        padding-left: 400px;
+       }
+        #checkbox:checked ~ .sideBar{
+            transform: translateX(-5px);
+        }
+
+        .line{
+            border: 2px solid white;
+            width: 20px;
+            margin-bottom: 5px;
+        }
+        .lineBox{
+            padding: 10px;
+            padding-top: 15px;
+        }
+        #checkbox{
+            display: none;
+        }
+        label{
+            width: 100px;
+        }
+       
+        /* side bar  */
+        .sideBar{
+            transform: translateX(-450px);
+            transition: all .5s;
+        }
+
+        .sideBar{
+            width: 350px;
+            height: 100vh;
+            position: absolute;
+            margin-top: 50px;
+            background: #353b48;
+            padding-top: 40px;
+           
+        
+
+        }
+        .sidBarChild{
+            margin-left: 50px;
+            margin-bottom: 30px;
+        }
+
+
+
+        /* 3d effect  */
+        .shadowEffect{
+            background-color: rgba(230, 231, 228, 0.959);   
+                     width: 100vw;
+            height: 95vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .box{
+        width: 960px;
+        /* display: flex; */
+        /* overflow-x: scroll; */
+        gap: 20px;
+        /* scroll-snap-type: x mandatory; */
+        border-radius:30px;
+        padding: 10px 10px;
+        display: flex;
+
+      }
+      .card{
+        
+        width: 300px;
+        box-sizing: border-box;
+        scroll-snap-align: center;
+        padding: 20px 30px;
+        flex-shrink: 0;
+        border-radius:30px;
+        background: yellow;
+      }
+      .box:hover{
+        box-shadow: 12px 12px 12px rgba(0,0,0,0.1),
+        -10px -10px 10px white;
+        
+      }
+      .card:hover{
+        box-shadow: 12px 12px 12px rgba(0,0,0,0.1) inset,
+        -10px -10px 10px white inset;
+      }
+      /* home */
+      #home{
+        width: 100vw;
+        height: 100vh;
+        background: orange;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 80px;
+        font-weight: 600;
+        color: white;
+
+      }
+      #about{
+        width: 100vw;
+        height: 100vh;
+        background: blue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 80px;
+        font-weight: 600;
+        color: white;
+
+
+
+      }
+      #setting{
+        width: 100vw;
+        height: 100vh;
+        background: red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 80px;
+        font-weight: 600;
+        color: white;
+
+
+      }
+      #login{
+        width: 100vw;
+        height: 100vh;
+        background: green;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* font-size: 80px; */
+        font-weight: 600;
+        color: white;
+
+      }
+      a{
+        text-decoration: none;
+        color: white;
+      }
+
+
+
+      /* login */
+      
+     /* eye open and close */
+     .eyeClose{
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            position: absolute;
+            transform: translate(-50px,10px);
+            
+        }
+        .eyeTop{
+            width: 100%;
+            height: 80%;
+            border-top: 2px solid black;
+            border-radius: 50%;
+            position: absolute;
+            transform: rotateX(180deg);
+            transition: all .3s;
+            /* background:white; */
+            z-index: 5;
+            
+        }
+        .eyeBottom{
+            width: 100%;
+            height: 80%;
+            border-bottom: 2px solid black;
+            border-radius: 50%;
+            position: absolute;
+            /* background: green; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .pupil{
+            width: 40%;
+            height: 60%;
+            border-radius: 100%;
+            display: none;
+            border: 1px solid black;
+            position: absolute;
+            transition: all .3s;
+        }
+
+        /* Login form */
+        .loginContainer{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .loginForm{
+            width: 350px;
+            height: 400px;
+            border: 2px solid black;
+            padding: 20px;
+            position: absolute;
+            /* background: rgb(55, 55, 55); */
+            background: rgb(31, 136, 217);
+            border-radius: 10px;
+        }
+       form input{
+            width: 100%;
+            height: 45px;
+            margin-bottom: 40px;
+            font-size: 22px;
+            padding-left: 10px;
+        }
+        form input::placeholder{
+            opacity: 0.3;
+        }
+        #password{
+            margin-bottom: 20px;
+        }
+        h1{
+            text-align: center;
+            padding: 0px 0px 40px 0px;
+            color: white;
+        }
+        .forgetPassword{
+            text-align: end;
+            color: white;
+            font-size: 11px;
+            text-decoration: underline ;
+        }
+        .btnBox{
+            text-align: center;
+            padding: 10px;
+        }
+       form input{
+            border-radius: 10px;
+        }
+        button{
+            padding: 10px 30px;
+            font-size: 25px;
+            font-weight: 600;
+            background:#1ffe1b;
+            color: white;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <input type="checkbox" id="checkbox">
+    <label for="checkbox">
+        <div class="lineBox">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+
+       
+    </label>
+   <div class="content">
+    <ul>
+        <li> <a href="#home">Home</a></li>
+        <li> <a href="#about">About</a></li>
+        <li> <a href="#setting">Setting</a></li>
+        <li> <a href="#content">content</a></li>
+         <li><a href="#login">Login</a></li>
+    </ul>
+   </div>
+    <div class="sideBar">
+       <div class="sidBarChild1 sidBarChild">Document Object Model</div>
+       <div class="sidBarChild2 sidBarChild">Console.dir</div>
+       <div class="sidBarChild3 sidBarChild">Method</div>
+       <div class="sidBarChild3 sidBarChild">for loop</div>
+       <div class="sidBarChild3 sidBarChild">for in loop</div>
+       <div class="sidBarChild3 sidBarChild">for of loop</div>
+       <div class="sidBarChild3 sidBarChild">while loop</div>
+       <div class="sidBarChild3 sidBarChild">do while loop</div>
+    </div>
+</header>
+
+<div class="shadowEffect" id="content">
+    <div class="box">
+        <div class="card">
+           <h2>Document Object model</h2>
+           <p>In JavaScript, the document object represents the current web page loaded in the browser. It serves as an entry point to access and manipulate the HTML content of the page.</p>
+        </div>
+           <div class="card">
+               <h2>console.dir()</h2>
+               <p>console.dir() is a JavaScript method that displays an interactive list of an object's properties in the browser's console. It's particularly useful for inspecting complex objects like DOM elements and nested objects.</p>
+           </div>
+       
+             <div class="card">
+               <h2>method</h2>
+               <p>getElementById()
+                   <br>
+                   getElementsByClassName()
+                   <br>
+                   getElementsByTagName()
+               </p>
+             </div>
+       </div>
+</div>
+<div id="home">Home</div>
+<div id="about">About</div>
+<div id="setting">Setting</div>
+<div id="login">
+    <div class="loginContainer">
+        <form class="loginForm">
+            <h1>Login</h1>
+            <input type="text" placeholder="Username" required id="username">
+            <input type="password" id="password" placeholder="Password" required>
+            <!-- password see eye  -->
+            <div class="eyeClose">
+                <div class="eyeTop">   
+                </div>
+                <div class="eyeBottom">
+                    <div class="pupil"></div>
+                </div>
+            </div>
+            <div class="forgetPassword">Forget Password</div>
+            <div class="btnBox">
+                <button id="formBtn">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    let eyeClose = document.querySelector('.eyeClose');
+    let eyeBlink = document.querySelector('.eyeTop')
+    let pupil = document.querySelector('.pupil')
+    let userName = document.querySelector('#username');
+    let userPassword = document.querySelector('#password');
+    let formBtn = document.querySelector('#formBtn')
+    let userData = [];
+    let name; 
+    let password;
+
+    eyeBlink.style.transform = 'rotateX(180deg)'
+    eyeClose.onclick = function(){
+         
+        if(eyeBlink.style.transform == 'rotateX(180deg)' ){ // if user click on eye then user can see the password
+            eyeBlink.style.transform = 'rotateX(0deg)'
+            pupil.style.display = 'block';
+            userPassword.type = 'text';
+            console.log(userPassword.required)
+        }else{
+            eyeBlink.style.transform = 'rotateX(180deg)'; // if user press again then user can not see the passowrd
+            pupil.style.display = 'none';
+            userPassword.type = 'password'
+        }
+          
+    }
+
+    formBtn.addEventListener('click',function(){
+        if(userName.required == true && userPassword.required == true){
+            // store user data 
+            name = userName.value;
+            password = userPassword.value;
+            userData.push({name,password})
+            console.log(userData)
+         }
+    })
+</script>
+</body>
+</html>
