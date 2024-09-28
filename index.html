@@ -338,10 +338,10 @@
 
    <!-- sidebar  -->
     <div class="sideBar">
-       <div class="sidBarChild1 sidBarChild">Document Object Model</div>
-       <div class="sidBarChild2 sidBarChild">Console.dir</div>
-       <div class="sidBarChild3 sidBarChild">Method</div>
-       <div class="sidBarChild3 sidBarChild">for loop</div>
+       <div class="sidBarChild1 sidBarChild"><a href="#home">Home</a></div>
+       <div class="sidBarChild2 sidBarChild"><a href="#about">About</a></div>
+       <div class="sidBarChild3 sidBarChild"><a href="#setting">Setting</a></div>
+       <div class="sidBarChild3 sidBarChild"><a href="#content">content</a></div>
        <div class="sidBarChild3 sidBarChild">for in loop</div>
        <div class="sidBarChild3 sidBarChild">for of loop</div>
        <div class="sidBarChild3 sidBarChild">while loop</div>
@@ -374,63 +374,5 @@
 <div id="home">Home</div>
 <div id="about">About</div>
 <div id="setting">Setting</div>
-<div id="login">
-    <div class="loginContainer">
-        <form class="loginForm">
-            <h1>Login</h1>
-            <input type="text" placeholder="Username" required id="username">
-            <input type="password" id="password" placeholder="Password" required>
-            <!-- password see eye  -->
-            <div class="eyeClose">
-                <div class="eyeTop">   
-                </div>
-                <div class="eyeBottom">
-                    <div class="pupil"></div>
-                </div>
-            </div>
-            <div class="forgetPassword">Forget Password</div>
-            <div class="btnBox">
-                <button id="formBtn">Submit</button>
-            </div>
-        </form>
-    </div>
-</div>
-<script>
-    let eyeClose = document.querySelector('.eyeClose');
-    let eyeBlink = document.querySelector('.eyeTop')
-    let pupil = document.querySelector('.pupil')
-    let userName = document.querySelector('#username');
-    let userPassword = document.querySelector('#password');
-    let formBtn = document.querySelector('#formBtn')
-    let userData = [];
-    let name; 
-    let password;
-
-    eyeBlink.style.transform = 'rotateX(180deg)'
-    eyeClose.onclick = function(){
-         
-        if(eyeBlink.style.transform == 'rotateX(180deg)' ){ // if user click on eye then user can see the password
-            eyeBlink.style.transform = 'rotateX(0deg)'
-            pupil.style.display = 'block';
-            userPassword.type = 'text';
-            console.log(userPassword.required)
-        }else{
-            eyeBlink.style.transform = 'rotateX(180deg)'; // if user press again then user can not see the passowrd
-            pupil.style.display = 'none';
-            userPassword.type = 'password'
-        }
-          
-    }
-
-    formBtn.addEventListener('click',function(){
-        if(userName.required == true && userPassword.required == true){
-            // store user data 
-            name = userName.value;
-            password = userPassword.value;
-            userData.push({name,password})
-            console.log(userData)
-         }
-    })
-</script>
 </body>
 </html>
